@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image with Text Overlay</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+    }
+    #imageContainer {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: none;
+    }
+    #fullImage {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    #overlayText {
+      position: absolute;
+      top: 49%;
+      left: 25%;
+      transform: translate(-50%, -50%);
+      font-size: 2vw;
+      color: rgb(0, 0, 0);
+      text-align: center;
+      padding: 20px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    // Ask user for text
+    const userText = prompt("Enter the text you want to overlay on the image:");
+
+    // Display image container and overlay text if user provided text
+    if (userText) {
+      document.write(`
+        <div id="imageContainer">
+          <img id="fullImage" src="https://drive.google.com/file/d/1JddzhiZxl5rSxl43Rl6y4pRLmkYdPe3a/view?usp=sharing" alt="Background Image">
+          <div id="overlayText">${userText}</div>
+        </div>
+      `);
+      document.getElementById("imageContainer").style.display = "block";
+    }
+  </script>
+</body>
+</html>
